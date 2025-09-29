@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "clientes")
@@ -15,26 +18,30 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCliente;
+    private Integer idCliente; // Identificador generado automáticamente.
 
     @Column (nullable = false, length = 100)
-    private String nombreCliente;
+    private String nombreCliente; // Nombre del cliente.
 
     @Column (nullable = false, length = 100)
-    private String apellidoCliente;
+    private String apellidoCliente; // Apellido del cliente.
 
     @Column (nullable = false, unique = true, length = 100)
-    private String rutCliente;
+    private String rutCliente; // RUT del cliente. - Caracter unico.
 
     @Column (nullable = false, length = 100)
-    private String emailCliente;
+    private String emailCliente; // Email del cliente.
 
     @Column (nullable = false, length = 10)
-    private String telefonoCliente;
+    private String telefonoCliente; // Teléfono del cliente.
 
     @Column (nullable = false, length = 200)
-    private String direccionCliente;
+    private String direccionCliente; // Dirección del cliente.
 
-    // @OneToMany
+    // Relaciones
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Reserva> reservas;
     
 }

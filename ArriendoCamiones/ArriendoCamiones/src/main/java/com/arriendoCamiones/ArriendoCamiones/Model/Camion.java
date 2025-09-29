@@ -1,10 +1,13 @@
 package com.arriendoCamiones.ArriendoCamiones.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "camiones")
@@ -44,7 +47,9 @@ public class Camion {
 
     // Relaciones
 
-
+    @OneToMany(mappedBy = "camion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Reserva> reservas;
 
 
 }
