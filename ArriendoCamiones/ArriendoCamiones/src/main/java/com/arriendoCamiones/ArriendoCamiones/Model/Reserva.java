@@ -54,7 +54,4 @@ public class Reserva {
     @JoinColumn(name = "id_Camion", referencedColumnName = "idCamion", nullable = false)
     private Camion camion; // Camion reservado.
 
-
-
-
 }

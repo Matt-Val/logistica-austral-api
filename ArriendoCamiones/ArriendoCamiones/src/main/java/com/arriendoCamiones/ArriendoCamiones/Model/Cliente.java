@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -14,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Cliente {
 
     @Id

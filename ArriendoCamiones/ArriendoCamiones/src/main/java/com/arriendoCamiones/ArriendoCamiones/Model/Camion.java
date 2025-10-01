@@ -51,5 +51,4 @@ public class Camion {
     @JsonIgnore
     private List<Reserva> reservas;
 
-
 }
