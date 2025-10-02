@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "reservas")
@@ -27,7 +26,7 @@ public class Reserva {
     private LocalDate fechaFinReserva; // Fecha de fin de la reserva
 
     @Column (nullable = false)
-    private LocalDateTime fechaReserva; // Fecha en que se realiza la reserva
+    private String fechaReserva; // Fecha en que se realiza la reserva
 
     @Column (nullable = false, length = 30)
     private String estadoReserva; // "Pendiente" - "Confirmada" - "En Curso" - "Finalizada" - "Cancelada"
